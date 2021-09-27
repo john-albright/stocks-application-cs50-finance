@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction Date & Time</th>
+                <th>Symbol</th>
+                <th>Amount of Shares</th>
+                <th>Price Per Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.time }}</td>
+                    <td>{{ transaction.stock_symbol }}</td>
+                    <td>{{ transaction.shares_count }}</td>
+                    <td>{{ transaction.cost }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

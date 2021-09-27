@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input id="symbol-typed" autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Quote</button>
+        <div id="dynamic-list">
+            <ul id="stock-symbol-list"></ul>
+        </div>
+    </form>
+
+    <script>
+
+        // Get the input from the form and make sure it's all capitalized
+        let input = document.querySelector("#symbol-typed");
+
+        input.addEventListener('keyup', function() {
+            // Get the JSON object at search of the user's input
+            // Capitalize the input value
+            $.get('/search?q=' + input.value.toUpperCase(), function(matchedSymbols) {
+
+                // Initialize string to be used to store all the list elements
+                let html = '';
+
+                // Iterate through the matchedSymbols and create a list item for each symbol
+                for (let index in matchedSymbols) {
+                    let potentialSymbol = matchedSymbols[index].symbol;
+                    let companyName = matchedSymbols[index].symbol;
+                    html += '<li class="clickable"title="' + companyName + '">' + potentialSymbol + '</li>';
+                }
+
+                // Fill in the empty <ul> element in the body with the list items
+                document.querySelector('#stock-symbol-list').innerHTML = html;
+            });
+        });
+
+        // Event listener for clicking a <li> element generated after the user enters a letter
+        document.addEventListener('click', e => {
+           if (e.target.matches('.clickable')) {
+               // Get the text in the <li> element
+               var text = $(e.target).text();
+
+               // Set the <input> value of the form to the text retrieved
+               input.value = text;
+           }
+        });
+
+    </script>
+
+{% endblock %}

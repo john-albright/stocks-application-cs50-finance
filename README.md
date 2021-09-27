@@ -1,0 +1,5 @@
+# Stocks Application for Investing
+
+This project was completed as to fulfill the requirements of [problem set 9](https://cs50.harvard.edu/x/2021/psets/9/finance) of [CS50 Introduction to Programming](https://online-learning.harvard.edu/course/cs50-introduction-computer-science?delta=0). The project was built using the framework Flask and therefore, utilizes Python for the back end operations and Jinja to allow templates for the front end. A SQL database titled finance.db is used to store user information and transactions. As an extension of the assignment, the deposit feature was added in addition to an AJAX call on the quote.html page to generate a list of all stock acronyms available while the user types. 
+
+To see an example of a user's profile, log in with the username john and password john. 

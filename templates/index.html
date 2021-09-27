@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="confirmation-message">
+        {% with message = get_flashed_messages() %}
+            {% if passed %}
+                {{ message }}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Amount of Shares</th>
+                <th>Price Per Stock</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for transaction in transactions %}
+                <tr>
+                    <td> {{ transaction.stock_symbol }} </td>
+                    <td> {{ transaction.company_name }} </td>
+                    <td> {{ transaction.total_shares }} </td>
+                    <td> {{ transaction.current_stock_price }} </td>
+                    <td> {{ transaction.total_stock_value }} </td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td> CASH </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> {{ cash }} </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> {{ total }} </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
