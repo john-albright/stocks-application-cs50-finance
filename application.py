@@ -1,18 +1,14 @@
-# Statements to create new table transactions in finance.db
-# CREATE TABLE transactions (transaction_no INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, stock_symbol TEXT NOT NULL,
-# cost NUMBER NOT NULL, shares_count INTEGER NOT NULL, time DATETIME NOT NULL);
-# CREATE UNIQUE INDEX transaction_no ON transactions (transaction_no);
-
-# API key export statement
-# export API_KEY=pk_f31d29df960a498e897273c3e342f6e8
+#!/usr/local/bin/python3.9
 
 import os
 import locale  # added for formatting currency
 import requests  # added for AJAX request
 import re  # added for regex
 
-from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session, jsonify, flash  # jsonify & flash were added here
+# from cs50 import SQL
+from python_cs50.sql import SQL
+from flask_sqlalchemy import SQLAlchemy # added to remove cs50 dependency
+from flask import Flask, flash, redirect, render_template, request, session, jsonify  # jsonify was added here
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
@@ -565,3 +561,9 @@ def errorhandler(e):
 # Listen for errors
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
+
+# Code added for replit that didn't work
+# Instead the run code was modified to:
+# flask run --host=0.0.0.0
+# if __name__ == "__main__":
+#   app.run(debug=True, host='0.0.0.0', port=8080)
