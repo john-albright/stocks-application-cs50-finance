@@ -5,9 +5,13 @@ import locale  # added for formatting currency
 import requests  # added for AJAX request
 import re  # added for regex
 
+# cs50 import statement 
 # from cs50 import SQL
+
+# cs50 import statement to coincide with the name of the folder on the local copy
 from python_cs50.sql import SQL
-from flask_sqlalchemy import SQLAlchemy # added to remove cs50 dependency
+
+# from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, flash, redirect, render_template, request, session, jsonify  # jsonify was added here
 from flask_session import Session
 from tempfile import mkdtemp
