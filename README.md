@@ -35,11 +35,11 @@ The application will raise an error if the API_KEY obtained from [IEX](https://i
 
 The application will be located at port 8080 on your local host, that is, it can be accessed by going to any browser on the local machine and entering localhost:8080 in the search bar.
 
+To see two profiles that have already been created and worked with, log in using the following information:
+- username: john, password: john
+- username: danny, password: danny
+
 Finally, deactivate the virtual environment when you are finished.
 ```
 deactivate
 ```
-
-To see two users' profiles, log in with:
-- username: john, password: john
-- username: danny, password: danny
