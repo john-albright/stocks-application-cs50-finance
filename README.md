@@ -5,28 +5,40 @@ This project was completed as to fulfill the requirements of [problem set 9](htt
 The [Python CS50 library](https://github.com/cs50/python-cs50/tree/main/src/cs50) is essential to the functioning of the code in application.py, especially commands concerning the SQL database. The [IEX API](https://iexcloud.io/) is used to access the current prices of all stocks available. 
 
 To begin to use this application, set up a [virtual envrionment](https://virtualenv.pypa.io/en/stable/). To install `virtualenv` on your local machine, use pip: 
-`pip install virutalenv`
+```
+pip install virutalenv
+```
 
 Then, set up the virtual environment by typing a statement similar to the following:
-`virtualenv -p python3.9 flask-env`
+```
+virtualenv -p python3.9 flask-env
+```
 The version of python may have another name on your machine; `python` and `python3` may also work. Format strings are used in the python code of the application, so python 3.6+ must be used to run the code. The `flask-env` portion of the code is simply the directory where the virtual envrionment will be created.
 
 Enter the the directory and activate the virtual environment.
-`cd flask-env`
-`source bin/activate`
+```
+cd flask-env
+source bin/activate
+```
 
 Install the dependendies using the requirements.txt file provided. You will have to use a relative (which depends on where the flask-env directory is) or the absolute path of the requirements.txt file. In the code below, the virtual environment is within this GitHub repository.
-`pip install -r ../requirements.txt`
+```
+pip install -r ../requirements.txt
+```
 
 After all the dependencies are installed, run the application.py file. Again, the 
-`python ../application.py`
+```
+python ../application.py
+```
 
 The application will raise an error if the API_KEY obtained from [IEX](https://iexcloud.io/) has not been specificied in a .env file within the GitHub repository folder. The [live Replit version](https://replit.com/@john-albright/stocks-application-cs50-finance) of this application includes my API as a secret variable.  
 
 The application will be located at port 8080 on your local host, that is, it can be accessed by going to any browser on the local machine and entering localhost:8080 in the search bar.
 
 Finally, deactivate the virtual environment when you are finished.
-`deactivate`
+```
+deactivate
+```
 
 To see two users' profiles, log in with:
 - username: john, password: john
