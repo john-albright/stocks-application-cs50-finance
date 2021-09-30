@@ -1,23 +1,22 @@
-#!/usr/local/bin/python3.9
-
 import os
 import locale  # added for formatting currency
 import requests  # added for AJAX request
 import re  # added for regex
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # cs50 import statement 
-# from cs50 import SQL
+from cs50 import SQL
 
-# cs50 import statement to coincide with the name of the folder on the local copy
-from python_cs50.sql import SQL
-
-# from flask_sqlalchemy import SQLAlchemy
+# flask specific import statements
 from flask import Flask, flash, redirect, render_template, request, session, jsonify  # jsonify was added here
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 
+# imports from helpers.py file
 from helpers import apology, login_required, lookup, usd
 
 from datetime import datetime  # added to get date & time
@@ -566,8 +565,6 @@ def errorhandler(e):
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
 
-# Code added for replit that didn't work
-# Instead the run code was modified to:
-# flask run --host=0.0.0.0
-# if __name__ == "__main__":
-#   app.run(debug=True, host='0.0.0.0', port=8080)
+# Code to launch the local server
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=8080)
